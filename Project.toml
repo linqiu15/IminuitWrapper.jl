@@ -1,0 +1,4 @@
+name = "iminuit_wrapper"
+uuid = "5952ed54-7d18-42dd-bf84-d0787464886b"
+authors = ["ql <qiulin@ihep.ac.cn>"]
+version = "0.1.0"
