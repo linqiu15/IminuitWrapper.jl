@@ -1,5 +1,5 @@
 module iminuit_wrapper
 
-greet() = print("Hello World!")
+using PyCall:
 
 end # module
