@@ -10,7 +10,7 @@ function __init__()
     # test if iminuit=2.11.2 installed
     try
         _version = pyimport("iminuit").__version__
-        if (_version != "2.11.2")
+        if _version != "2.11.2"
             msg = "The current version of iminuit is $_version and it will be changed to 2.11.2!"
         end
     catch
