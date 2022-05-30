@@ -1,7 +1,8 @@
-name = "iminuit_wrapper"
-uuid = "5952ed54-7d18-42dd-bf84-d0787464886b"
+name = "IminuitWrapper"
+uuid = "69b7fa52-93a5-48e3-8679-b41b6c73e058"
 authors = ["ql <qiulin@ihep.ac.cn>"]
 version = "0.1.0"
 
 [deps]
+Conda = "8f4d0f93-b110-5947-807f-2305c1781a2d"
 PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
