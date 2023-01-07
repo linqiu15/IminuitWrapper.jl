@@ -1,12 +1,32 @@
-function Minuit(fcn::Function, args...; kwds...)::Fit
-    return mMinuit(fcn, args...; kwds...)
+abstract type AbstractMinuit end
+
+struct Minuit <: AbstractMinuit
+    o::PyObject
 end
 
-function migrad(f::Fit; ncall=0, iterate=5)
-    #ncall:default 0 in official setting
-    pycall(f.migrad, PyObject, ncall, iterate)
+struct MigradAndHesse <: AbstractMinuit
+    errordef::Float64
 end
 
-function minos(f::Fit, paras...)#; cl=(0.68), ncall=0)
-    pycall(f.minos, PyObject, paras...)#, cl, ncall)
+
+const LEAST_SQUARES = MigradAndHesse(mMinuit.LEAST_SQUARES)
+const LIKELIHOOD = MigradAndHesse(mMinuit.LIKELIHOOD)
+
+
+function Minuit(fcn, pars; optimizer::MigradAndHesse=LEAST_SQUARES)::Minuit
+    o = mMinuit(fcn, pars)
+    o.errordef = optimizer.errordef
+    o
+end
+
+function migrad(o::Minuit)
+    pycall(o.migrad, PyObject)
+end
+
+function hesse(o::Minuit)
+    pycall(o.hesse, PyObject)
+end
+
+function minos(o::Minuit)
+    pycall(o.minos, PyObject)
 end
