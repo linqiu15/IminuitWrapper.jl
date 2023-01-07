@@ -4,18 +4,10 @@ struct Minuit <: AbstractMinuit
     o::PyObject
 end
 
-struct MigradAndHesse <: AbstractMinuit
-    errordef::Float64
-end
 
-
-const LEAST_SQUARES = MigradAndHesse(mMinuit.LEAST_SQUARES)
-const LIKELIHOOD = MigradAndHesse(mMinuit.LIKELIHOOD)
-
-
-function Minuit(fcn, pars; optimizer::MigradAndHesse=LEAST_SQUARES)::Minuit
+function Minuit(fcn, pars; optimizer=1.0)::Minuit
     o = mMinuit(fcn, pars)
-    o.errordef = optimizer.errordef
+    o.errordef = optimizer
     o
 end
 
