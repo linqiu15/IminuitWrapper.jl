@@ -1,9 +1,7 @@
-name = "IMinuitWrapper"
-uuid = "bc99bb97-c368-4f91-8204-889f2a9a1366"
+name = "IminuitWrapper"
+uuid = "6d6a4091-5d72-4866-8376-e24089970dc5"
 authors = ["ql <qiulin@ihep.ac.cn>"]
 version = "0.1.0"
 
 [deps]
-IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
-IminuitWrapper = "69b7fa52-93a5-48e3-8679-b41b6c73e058"
 PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
